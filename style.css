@@ -1,0 +1,645 @@
+/* ==============================
+   共通設定
+   サイト全体で使う色・影・幅などをここでまとめて管理します。
+   色を変えたいときは、まず :root の値を変更すると楽です。
+============================== */
+:root {
+  --color-bg: #fbf8f5;
+  --color-surface: #ffffff;
+  --color-primary: #b97868;
+  --color-primary-dark: #875446;
+  --color-accent: #d7b8a7;
+  --color-text: #322a27;
+  --color-muted: #756b66;
+  --color-border: #eaded7;
+  --shadow-soft: 0 18px 48px rgba(72, 45, 34, 0.1);
+  --radius-large: 24px;
+  --radius-medium: 16px;
+  --radius-small: 10px;
+  --content-width: 1080px;
+}
+
+/* paddingやborderを含めてサイズ計算するための基本設定です。 */
+* {
+  box-sizing: border-box;
+}
+
+/* bodyはページ全体の文字色・背景色・フォントを決めます。 */
+body {
+  margin: 0;
+  color: var(--color-text);
+  background: var(--color-bg);
+  font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  line-height: 1.75;
+}
+
+/* 画像が親要素からはみ出さないようにします。 */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* リンクの下線を消し、文字色を周囲に合わせます。 */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 横にはみ出した装飾がスクロールバーを出さないようにします。 */
+.page {
+  overflow: hidden;
+}
+
+/* ==============================
+   セクション共通
+   各ブロックの余白や中央寄せを管理します。
+============================== */
+.section {
+  padding: 88px 24px;
+}
+
+/* section-innerで中身の最大幅をそろえています。 */
+.section-inner {
+  width: min(100%, var(--content-width));
+  margin: 0 auto;
+}
+
+/* 見出し部分を中央揃えにします。 */
+.section-heading {
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+/* 英語ラベルなど、小さな見出しに使います。 */
+.section-label {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* clampで画面幅に合わせて見出しサイズを自然に変えます。 */
+.section-title {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+/* セクション説明文の横幅を少し狭くして読みやすくします。 */
+.section-description {
+  max-width: 620px;
+  margin: 14px auto 0;
+  color: var(--color-muted);
+  font-size: 15px;
+}
+
+/* ==============================
+   ヘッダー・ファーストビュー
+============================== */
+.site-header {
+  min-height: 92vh;
+  padding: 28px 24px 56px;
+  background:
+    linear-gradient(
+      115deg,
+      rgba(251, 248, 245, 0.96) 0%,
+      rgba(251, 248, 245, 0.82) 48%,
+      rgba(251, 248, 245, 0.34) 100%
+    ),
+    url("https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1800&q=80")
+      center / cover;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ロゴとナビを横並びにします。 */
+.header-bar {
+  width: min(100%, var(--content-width));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* 店舗名を少し上品に見せるため、明朝系フォントを指定します。 */
+.shop-logo {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+/* ナビゲーションリンクを横並びにします。 */
+.header-nav {
+  display: flex;
+  gap: 22px;
+  color: var(--color-muted);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* heroはヘッダー内の大きなメインコピー部分です。 */
+.hero {
+  width: min(100%, var(--content-width));
+  margin: auto auto 0;
+  padding: 96px 0 24px;
+}
+
+/* 文章の横幅を抑えて読みやすくします。 */
+.hero-copy {
+  max-width: 590px;
+}
+
+/* 小さな導入ラベルです。横線は ::before で作っています。 */
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--color-primary-dark);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.hero-label::before {
+  content: "";
+  width: 38px;
+  height: 1px;
+  background: var(--color-primary);
+}
+
+/* 店舗名を大きく表示します。 */
+.hero-title {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(48px, 8vw, 86px);
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.hero-text {
+  margin: 24px 0 34px;
+  max-width: 510px;
+  color: var(--color-muted);
+  font-size: 17px;
+}
+
+/* ボタンを横並びにし、狭い画面では折り返せるようにします。 */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* すべてのボタンに共通する形です。 */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* 目立たせたいメインボタンです。 */
+.button-primary {
+  color: #fff;
+  background: var(--color-primary);
+  box-shadow: 0 12px 24px rgba(185, 120, 104, 0.26);
+}
+
+/* 補助的なボタンです。 */
+.button-secondary {
+  color: var(--color-primary-dark);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--color-border);
+}
+
+.button-line {
+  color: #128c3a;
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(18, 140, 58, 0.24);
+}
+
+.line-benefits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.line-benefits span {
+  padding: 7px 12px;
+  color: var(--color-primary-dark);
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(215, 196, 188, 0.78);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ==============================
+   サービス紹介
+============================== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+/* 白背景・枠線・影のカードデザインをまとめています。 */
+.service-card,
+.access-info,
+.map-panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-soft);
+}
+
+.service-card {
+  padding: 30px;
+}
+
+/* 丸い番号アイコンです。 */
+.service-number {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 22px;
+  display: grid;
+  place-items: center;
+  color: var(--color-primary-dark);
+  background: #f6ebe4;
+  border-radius: 50%;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+}
+
+.service-title {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+.service-text {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 15px;
+}
+
+/* ==============================
+   メニュー・料金表
+============================== */
+.menu-section {
+  background: #fffaf7;
+}
+
+.price-list {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 12px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-soft);
+}
+
+/* メニュー名と価格を左右に分けます。 */
+.price-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: center;
+  padding: 22px 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.price-item:last-child {
+  border-bottom: 0;
+}
+
+.price-name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.price-note {
+  margin: 4px 0 0;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.price-value {
+  color: var(--color-primary-dark);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ==============================
+   アクセス
+============================== */
+.access-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.access-info {
+  padding: 32px;
+}
+
+.info-list {
+  margin: 0;
+}
+
+.info-row {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.info-row:last-child {
+  border-bottom: 0;
+}
+
+.info-label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.info-text {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 15px;
+}
+
+/* 背景の格子で地図っぽさを出しています。 */
+.map-panel {
+  min-height: 360px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px), #eadbd1;
+  background-size: 42px 42px;
+}
+
+/* 地図内の道路をCSSだけで描いています。 */
+.map-road {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.72);
+  border-radius: 999px;
+}
+
+.map-road-main {
+  width: 120%;
+  height: 34px;
+  left: -10%;
+  top: 53%;
+  transform: rotate(-10deg);
+}
+
+.map-road-sub {
+  width: 34px;
+  height: 120%;
+  right: 32%;
+  top: -10%;
+  transform: rotate(8deg);
+}
+
+/* 店舗の位置を示すピンです。 */
+.map-pin {
+  position: absolute;
+  left: 48%;
+  top: 44%;
+  width: 86px;
+  height: 86px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: var(--color-primary);
+  border: 8px solid rgba(255, 255, 255, 0.86);
+  border-radius: 50% 50% 50% 8px;
+  box-shadow: 0 18px 32px rgba(105, 67, 55, 0.22);
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* ピン自体を回転させているので、文字だけ戻しています。 */
+.map-pin span {
+  transform: rotate(45deg);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.map-card {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  width: min(260px, calc(100% - 48px));
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-medium);
+  backdrop-filter: blur(10px);
+}
+
+.map-card-title {
+  margin: 0 0 4px;
+  font-weight: 700;
+}
+
+.map-card-text {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+/* ==============================
+   フッター・固定予約ボタン
+============================== */
+.site-footer {
+  padding: 34px 24px;
+  color: #fff;
+  background: var(--color-primary-dark);
+  text-align: center;
+}
+
+.footer-shop-name {
+  margin: 0 0 6px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.footer-text {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 13px;
+}
+
+.footer-line {
+  margin: 0 0 8px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* fixedで画面右下に常に表示します。 */
+.fixed-reservation-button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 20;
+  min-width: 148px;
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 22px;
+  color: #fff;
+  background: var(--color-primary);
+  border-radius: 999px;
+  box-shadow: 0 16px 34px rgba(135, 84, 70, 0.28);
+  font-size: 15px;
+  font-weight: 700;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+/* Web予約は上にずらす */
+.fixed-reservation-button.web {
+  bottom: 100px;
+}
+
+/* LINE用カラー（任意） */
+.fixed-reservation-button.line {
+  min-width: 224px;
+  color: #128c3a;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(18, 140, 58, 0.24);
+  box-shadow: 0 14px 30px rgba(18, 140, 58, 0.18);
+}
+
+/* hoverはマウスを乗せたときの見た目です。少し上に浮かせます。 */
+.fixed-reservation-button:hover {
+  background: var(--color-primary-dark);
+  color: #fff;
+  box-shadow: 0 22px 42px rgba(135, 84, 70, 0.34);
+  transform: translateY(-4px);
+}
+
+/* ==============================
+   レスポンシブ対応
+   画面幅が狭くなったときの見た目を調整します。
+============================== */
+@media (max-width: 820px) {
+  .section {
+    padding: 72px 20px;
+  }
+
+  .site-header {
+    min-height: 760px;
+    background-position: 62% center;
+  }
+
+  .header-bar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .header-nav {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .services-grid,
+  .access-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    padding: 26px;
+  }
+}
+
+@media (max-width: 560px) {
+  .section {
+    padding: 60px 18px;
+  }
+
+  .site-header {
+    min-height: 700px;
+    padding: 22px 18px 44px;
+  }
+
+  .header-nav {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .hero {
+    padding-top: 64px;
+  }
+
+  .hero-text {
+    font-size: 15px;
+  }
+
+  .hero-actions,
+  .button {
+    width: 100%;
+  }
+
+  .fixed-reservation-button {
+    right: 16px;
+    bottom: 16px;
+    min-width: 136px;
+    min-height: 52px;
+    padding: 13px 18px;
+    font-size: 14px;
+  }
+
+  /* Web予約は上にずらす */
+  .fixed-reservation-button.web {
+    bottom: 100px;
+  }
+
+  /* LINE用カラー（任意） */
+  .fixed-reservation-button.line {
+    min-width: 224px;
+    max-width: calc(100vw - 32px);
+  }
+
+  .price-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .price-value {
+    font-size: 20px;
+  }
+
+  .map-panel {
+    min-height: 330px;
+  }
+
+  .map-pin {
+    left: 50%;
+    top: 39%;
+  }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- このファイルは予約フォーム専用ページです。見た目の指定は booking.css に分けています。 -->
+<html lang="ja">
+<head>
+  <!-- 文字化けを防ぐため、日本語も扱えるUTF-8を指定しています。 -->
+  <meta charset="UTF-8">
+
+  <!-- スマホでも画面幅に合わせて表示するための設定です。 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ブラウザのタブに表示されるページタイトルです。 -->
+  <title>予約フォーム | Lumina Salon</title>
+
+  <!-- 予約ページ用のCSSファイルを読み込みます。 -->
+  <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+  <!-- booking-pageは予約ページ全体を包む箱です。 -->
+  <div class="booking-page">
+    <!-- ヘッダー。店舗名とトップページへのリンクを表示します。 -->
+    <header class="booking-header">
+      <div class="header-bar">
+        <!-- 店舗名をクリックするとトップページへ戻ります。 -->
+        <a class="shop-logo" href="index.html">Lumina Salon</a>
+
+        <!-- トップページ内の各セクションへ移動するメニューです。 -->
+        <nav class="header-nav" aria-label="ページメニュー">
+          <a href="index.html#services">サービス</a>
+          <a href="index.html#menu">料金</a>
+          <a href="index.html#access">アクセス</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- mainには予約フォームページの中心となる内容を入れます。 -->
+    <main class="booking-main">
+      <!-- booking-layoutは説明文とフォームを横並びにする箱です。 -->
+      <div class="booking-layout">
+        <!-- 予約ページの説明文です。 -->
+        <section class="booking-intro" aria-labelledby="booking-title">
+          <span class="section-label">Booking</span>
+          <h1 class="booking-title" id="booking-title">Reserve your time</h1>
+          <p class="booking-text">
+            導入イメージを確認できる静的デモです。実予約処理、メール認証、管理画面連携は非公開の本体コードで提供します。
+          </p>
+          <p class="booking-note">
+            公開版ではUIと入力導線のみを掲載しています。送信機能は動作しません。
+          </p>
+        </section>
+
+        <!-- 白いカードの中に予約フォームを配置します。 -->
+        <section class="booking-card" aria-label="予約フォーム">
+          <form class="booking-form" aria-label="予約フォーム静的デモ">
+            <!-- 名前入力欄。requiredがあるので入力必須です。 -->
+            <div class="form-group">
+              <label class="form-label" for="name">
+                名前<span class="required-label">必須</span>
+              </label>
+              <input class="form-input" type="text" id="name" name="name" autocomplete="name" required>
+            </div>
+
+            <!-- メールアドレス入力欄。type="email"でメール形式をチェックできます。 -->
+            <div class="form-group">
+              <label class="form-label" for="email">
+                メールアドレス<span class="required-label">必須</span>
+              </label>
+              <input class="form-input" type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+
+            <!-- 予約日と予約時間を分けて選べるようにしています。 -->
+            <div class="form-group">
+              <label class="form-label" for="date">
+                日付<span class="required-label">必須</span>
+              </label>
+              <input class="form-input" type="date" id="date" name="date" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="time">
+                時間<span class="required-label">必須</span>
+              </label>
+              <select class="form-select" id="time" name="time" required>
+                <option value="">時間を選択してください</option>
+              </select>
+            </div>
+
+            <!-- 任意メッセージ欄。textareaは複数行の文章入力に使います。 -->
+            <div class="form-group">
+              <label class="form-label" for="message">メッセージ</label>
+              <textarea class="form-textarea" id="message" name="message" placeholder="ご希望メニューや相談したい内容をご記入ください"></textarea>
+            </div>
+
+            <button class="submit-button" type="button" disabled>送信機能は非公開です</button>
+
+            <p class="form-message" aria-live="polite">公開版はポートフォリオ用の静的デモです。</p>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <!-- フッター。ページの最後に店舗名と著作権表示を置きます。 -->
+    <footer class="booking-footer">
+      <p class="footer-shop-name">Lumina Salon</p>
+      <p class="footer-text">© 2026 Lumina Salon. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

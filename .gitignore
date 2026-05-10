@@ -1,0 +1,14 @@
+# Public portfolio repository
+# Only exported UI/demo files should live here.
+
+admin*
+verify*
+cancel*
+login*
+firebase.json
+.firebaserc
+functions/
+.agents/
+*lock.json
+.env
+.env.*

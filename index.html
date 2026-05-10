@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<!-- このファイルは店舗紹介サイトのトップページです。見た目の指定は style.css に分けています。 -->
+<html lang="ja">
+
+<head>
+  <!-- 文字化けを防ぐため、日本語も扱えるUTF-8を指定しています。 -->
+  <meta charset="UTF-8">
+
+  <!-- スマホでも画面幅に合わせて表示するための設定です。 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ブラウザのタブに表示されるページタイトルです。 -->
+  <title>Lumina Salon | 店舗紹介テンプレート</title>
+
+  <!-- CSSファイルを読み込んで、このHTMLにデザインを適用します。 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- pageはサイト全体を包む大きな箱です。 -->
+  <div class="page">
+    <!-- ヘッダー。店舗名、ナビゲーション、メインコピーを表示します。 -->
+    <header class="site-header" id="top">
+      <!-- header-barはロゴとメニューを横並びにするための箱です。 -->
+      <div class="header-bar">
+        <!-- 店舗ロゴ。クリックするとページ上部へ戻ります。 -->
+        <a class="shop-logo" href="#top">Lumina Salon</a>
+
+        <!-- ページ内の各セクションへ移動するメニューです。 -->
+        <nav class="header-nav" aria-label="ページ内メニュー">
+          <a href="#services">サービス</a>
+          <a href="#menu">料金</a>
+          <a href="#access">アクセス</a>
+          <a href="booking.html">予約フォーム</a>
+        </nav>
+      </div>
+
+      <!-- ファーストビュー。最初に大きく見せたい文章とボタンを置きます。 -->
+      <div class="hero">
+        <div class="hero-copy">
+          <p style="margin-top:10px;">
+            Web予約とLINE公式アカウントに対応した店舗サイトテンプレート
+          </p>
+          <p class="hero-label">Private beauty & care</p>
+          <h1 class="hero-title">Lumina Salon</h1>
+          <p class="hero-text">
+            忙しい毎日に、ふっと深呼吸できる時間を。美容室・ネイル・整体など、
+            小さな店舗に合わせて使える、やわらかく清潔感のある紹介ページです。
+          </p>
+
+          <!-- 主要な行動ボタンです。ページ内の料金とアクセスへ移動します。 -->
+          <div class="hero-actions">
+            <a class="button button-primary" href="booking.html">Web予約はこちら</a>
+            <a class="button button-secondary" href="#menu">メニューを見る</a>
+            <a class="button button-secondary" href="#access">店舗情報を見る</a>
+            <a class="button button-line" href="https://lin.ee/PQO35X3" target="_blank" rel="noopener">LINE友だち追加</a>
+          </div>
+
+          <div class="line-benefits" aria-label="LINEで受け取れる情報">
+            <span>クーポン配信中</span>
+            <span>キャンペーン情報はこちら</span>
+            <span>空き情報のお知らせ</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- mainにはページの中心となるコンテンツを入れます。 -->
+    <main>
+      <!-- サービス紹介セクションです。 -->
+      <section class="section" id="services">
+        <div class="section-inner">
+          <!-- section-headingは各セクションの見出し部分です。 -->
+          <div class="section-heading">
+            <span class="section-label">Services</span>
+            <h2 class="section-title">あなたらしさを整えるサービス</h2>
+            <p class="section-description">
+              店舗の業種に合わせて、見出しと本文を書き換えるだけで使える紹介エリアです。
+            </p>
+          </div>
+
+          <!-- 3つのサービスカードを並べるエリアです。 -->
+          <div class="services-grid">
+            <article class="service-card">
+              <div class="service-number">01</div>
+              <h3 class="service-title">カウンセリング</h3>
+              <p class="service-text">
+                お悩みや理想の雰囲気を丁寧に伺い、一人ひとりに合うプランをご提案します。
+              </p>
+            </article>
+
+            <article class="service-card">
+              <div class="service-number">02</div>
+              <h3 class="service-title">パーソナル施術</h3>
+              <p class="service-text">
+                髪・爪・身体など、目的に合わせたケアで自然な美しさと心地よさを引き出します。
+              </p>
+            </article>
+
+            <article class="service-card">
+              <div class="service-number">03</div>
+              <h3 class="service-title">アフターケア</h3>
+              <p class="service-text">
+                ご自宅でも続けやすいケア方法や、次回の目安をわかりやすくお伝えします。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- メニューと料金表のセクションです。 -->
+      <section class="section menu-section" id="menu">
+        <div class="section-inner">
+          <div class="section-heading">
+            <span class="section-label">Menu</span>
+            <h2 class="section-title">メニュー・料金</h2>
+            <p class="section-description">
+              価格や施術時間はサンプルです。実際のメニューに合わせて自由に変更できます。
+            </p>
+          </div>
+
+          <!-- price-listは料金表全体の箱です。 -->
+          <div class="price-list">
+            <!-- price-itemは1つのメニュー行です。複製すると項目を増やせます。 -->
+            <div class="price-item">
+              <div>
+                <p class="price-name">ベーシックケア</p>
+                <p class="price-note">初めての方にもおすすめの基本メニュー</p>
+              </div>
+              <div class="price-value">¥5,500</div>
+            </div>
+
+            <div class="price-item">
+              <div>
+                <p class="price-name">スタンダードコース</p>
+                <p class="price-note">カウンセリング込みの人気メニュー</p>
+              </div>
+              <div class="price-value">¥8,800</div>
+            </div>
+
+            <div class="price-item">
+              <div>
+                <p class="price-name">プレミアムコース</p>
+                <p class="price-note">じっくり整えたい方向けの特別ケア</p>
+              </div>
+              <div class="price-value">¥12,000</div>
+            </div>
+
+            <div class="price-item">
+              <div>
+                <p class="price-name">オプションケア</p>
+                <p class="price-note">必要な内容を追加できる単品メニュー</p>
+              </div>
+              <div class="price-value">¥2,200〜</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 店舗情報と地図風レイアウトのセクションです。 -->
+      <section class="section" id="access">
+        <div class="section-inner">
+          <div class="section-heading">
+            <span class="section-label">Access</span>
+            <h2 class="section-title">アクセス</h2>
+            <p class="section-description">
+              地図画像や外部サービスを使わず、CSSだけで地図風に見せるレイアウトです。
+            </p>
+          </div>
+
+          <!-- 住所情報と地図風パネルを横並びにする箱です。 -->
+          <div class="access-layout">
+            <div class="access-info">
+              <!-- dlは「項目名」と「内容」をセットで表示するHTMLです。 -->
+              <dl class="info-list">
+                <div class="info-row">
+                  <dt class="info-label">住所</dt>
+                  <dd class="info-text">東京都渋谷区サンプル町 1-2-3 Sample Building 2F</dd>
+                </div>
+                <div class="info-row">
+                  <dt class="info-label">営業時間</dt>
+                  <dd class="info-text">10:00 - 19:00 / 不定休</dd>
+                </div>
+                <div class="info-row">
+                  <dt class="info-label">最寄り駅</dt>
+                  <dd class="info-text">サンプル駅 徒歩5分</dd>
+                </div>
+                <div class="info-row">
+                  <dt class="info-label">予約</dt>
+                  <dd class="info-text">TEL 03-0000-0000 / Instagram DM</dd>
+                </div>
+              </dl>
+            </div>
+
+            <!-- CSSで道路やピンを描いた地図風の飾りです。 -->
+            <div class="map-panel" aria-label="店舗周辺の地図風レイアウト">
+              <div class="map-road map-road-main"></div>
+              <div class="map-road map-road-sub"></div>
+              <div class="map-pin"><span>Salon</span></div>
+              <div class="map-card">
+                <p class="map-card-title">Lumina Salon</p>
+                <p class="map-card-text">駅前通りを直進し、白いビルの2階です。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- フッター。ページの最後に店舗名と著作権表示を置きます。 -->
+    <footer class="site-footer">
+      <p class="footer-shop-name">Lumina Salon</p>
+      <p class="footer-line">LINEでお得な情報を配信中</p>
+      <p class="footer-text">© 2026 Lumina Salon. All rights reserved.</p>
+    </footer>
+
+    <!-- 画面右下に固定表示されるLINE公式アカウントへのボタンです。 -->
+    <a class="fixed-reservation-button line" href="https://lin.ee/PQO35X3" target="_blank">
+      LINEで最新情報を受け取る
+    </a>
+
+    <a class="fixed-reservation-button web" href="booking.html">
+      Web予約
+    </a>
+  </div>
+</body>
+
+</html>
